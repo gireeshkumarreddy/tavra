@@ -1,0 +1,17 @@
+# Code only: photos, textures, renders and video stay out of the repository.
+assets/
+*.webp
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.avif
+*.mp4
+*.mov
+*.webm
+
+# local tooling
+__pycache__/
+.DS_Store
+Thumbs.db

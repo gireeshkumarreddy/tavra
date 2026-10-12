@@ -1,0 +1,1803 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TĀVRA — Indo-western sportswear for women</title>
+<script>document.documentElement.classList.add('js')</script>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@300,400,500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playball&display=swap">
+<script defer src="https://cdn.jsdelivr.net/npm/mp4box@0.5.2/dist/mp4box.all.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js"></script>
+<style>
+@layer reset, tokens, base, layout, components, motion, utilities;
+
+@font-face {
+  font-family: 'Switzer Fallback';
+  src: local('Arial'), local('ArialMT');
+  ascent-override: 96.67%;
+  descent-override: 24.66%;
+  line-gap-override: 8.88%;
+  size-adjust: 101.38%;
+}
+
+@property --brand-min-h {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 72px;
+}
+
+/* ------------------------------------------------------------------ reset */
+@layer reset {
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body, h1, h2, h3, h4, p, ul, li, figure { margin: 0; padding: 0; }
+  ul { list-style: none; }
+  img, video, canvas, svg { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  button {
+    font: inherit; color: inherit; background: none; border: 0; padding: 0; margin: 0;
+    cursor: pointer; appearance: none; -webkit-appearance: none; text-align: inherit;
+  }
+  a, button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+}
+
+/* ----------------------------------------------------------------- tokens */
+@layer tokens {
+  :root {
+    /* TĀVRA palette */
+    --pearl: #faf8f4;        /* page white: warm, with a faint sheen */
+    --studio: #efebe4;       /* backdrop behind product cut-outs */
+    --ink: #17201c;          /* green-black text */
+    --forest: #1e3a2f;
+    --burgundy: #6b1e2a;
+    --gold: #b08d57;         /* antique gold, lines only */
+
+    --bg: var(--pearl);
+    --ghost: color-mix(in srgb, var(--ink) 7%, var(--pearl));
+    --ink-88: color-mix(in srgb, var(--ink) 88%, transparent);
+    --ink-64: color-mix(in srgb, var(--ink) 64%, transparent);
+    --ink-48: color-mix(in srgb, var(--ink) 48%, transparent);
+    --ink-32: color-mix(in srgb, var(--ink) 32%, transparent);
+    --ink-24: color-mix(in srgb, var(--ink) 24%, transparent);
+    --ink-08: color-mix(in srgb, var(--ink) 8%, transparent);
+    --line: color-mix(in srgb, var(--gold) 60%, transparent);
+    --hair: color-mix(in srgb, var(--ink) 18%, transparent);
+
+    --section-gap: clamp(192px, 14vw, 240px);   /* at least two inches between sections */
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --font: 'Switzer', 'Switzer Fallback', 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    --font-initial: 'Playball', cursive;
+
+    --pad-x: max(16px, 2.7211vw);   /* 40px @1470 */
+    --pad-y: max(16px, 2.1769vw);   /* 32px @1470 */
+    --gutter: 24px;
+    --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+    --in-y: 12px;
+    --in-blur: 8px;
+    --out-y: 12px;
+    --out-blur: 8px;
+
+    --hero-runway: 80svh;
+    --sec2-runway: 220svh;
+
+    --mat-max: 180px;
+    --mat-travel: 520px;
+    --mat-rot: 4deg;
+
+    --measure-lead: 480px;
+    --measure-body: 420px;
+    --measure-h1: 580px;
+
+    --fs-display: clamp(80px, 16.667vw, 240px); --lh-display: .92;  --ls-display: -.055em;
+    --fs-h1: clamp(40px, 3.333vw, 48px);        --lh-h1: 1.125;     --ls-h1: -.04em;
+    --fs-h2: clamp(24px, 4.667vw, 56px);        --lh-h2: 1.15;      --ls-h2: -.025em;
+    --fs-figure: clamp(32px, 3.333vw, 48px);    --lh-figure: 1.15;  --ls-figure: -.06em;
+    --fs-lead: clamp(20px, 2.222vw, 32px);      --lh-lead: 1.3;     --ls-lead: -.025em;
+    --fs-body-lg: clamp(18px, 2vw, 24px);       --lh-body-lg: 1.33; --ls-body-lg: -.03em;
+    --fs-body: clamp(16px, 1.667vw, 20px);      --lh-body: 1.45;    --ls-body: -.02em;
+    --fs-small: 14px;                           --lh-small: 1.7;    --ls-small: -.01em;
+    --fs-ui: 14px;                              --lh-ui: 1.7;
+
+    --brand-min-h: calc(3 * var(--fs-ui) * var(--lh-ui));
+    --fs-brand: min(var(--fs-display), 26svh);
+    --shrink-end: .32;
+  }
+  @media (pointer: coarse) {
+    :root { --fs-ui: 16px; }
+  }
+}
+
+/* ------------------------------------------------------------------- base */
+@layer base {
+  html {
+    background: var(--bg);
+    color: var(--ink);
+    color-scheme: light;
+    overscroll-behavior: none;
+    overflow-x: clip;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  /* a soft fixed light from the top keeps the white smooth instead of flat */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(120% 70% at 50% -12%, #fff 0%, rgb(255 255 255 / 0) 62%);
+  }
+  body {
+    font-family: var(--font);
+    font-weight: 300;
+    font-size: var(--fs-body);
+    line-height: var(--lh-body);
+    letter-spacing: var(--ls-body);
+    overscroll-behavior: none;
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  :focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+  :focus:not(:focus-visible) { outline: none; }
+
+  .t-display { font-size: var(--fs-display); line-height: var(--lh-display); letter-spacing: var(--ls-display); font-weight: 300; }
+  .t-h1      { font-size: var(--fs-h1);      line-height: var(--lh-h1);      letter-spacing: var(--ls-h1);      font-weight: 300; }
+  .t-h2      { font-size: var(--fs-h2);      line-height: var(--lh-h2);      letter-spacing: var(--ls-h2);      font-weight: 300; }
+  .t-figure  { font-size: var(--fs-figure);  line-height: var(--lh-figure);  letter-spacing: var(--ls-figure);  font-weight: 300; }
+  .t-lead    { font-size: var(--fs-lead);    line-height: var(--lh-lead);    letter-spacing: var(--ls-lead);    font-weight: 300; }
+  .t-body-lg { font-size: var(--fs-body-lg); line-height: var(--lh-body-lg); letter-spacing: var(--ls-body-lg); font-weight: 300; }
+  .t-body    { font-size: var(--fs-body);    line-height: var(--lh-body);    letter-spacing: var(--ls-body);    font-weight: 300; }
+  .t-title   { font-size: var(--fs-body);    line-height: var(--lh-body);    letter-spacing: var(--ls-body);    font-weight: 400; }
+  .t-small   { font-size: var(--fs-small);   line-height: var(--lh-small);   letter-spacing: var(--ls-small);   font-weight: 400; }
+  .t-ui      { font-size: var(--fs-ui);      line-height: var(--lh-ui);      letter-spacing: 0;                 font-weight: 500; }
+}
+
+/* ----------------------------------------------------------------- layout */
+@layer layout {
+  /* the studio plate multiplies onto ivory, so its white seamless takes the page colour */
+  .stage {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: transparent;
+    mix-blend-mode: multiply;
+    opacity: calc(1 - var(--stage-out, 0));
+  }
+  .stage__layer { position: absolute; inset: 0; }
+  .stage__b { opacity: var(--x2, 0); }
+  .stage video,
+  .stage canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center;
+  }
+  @media (max-aspect-ratio: 3/4) {
+    .stage video,
+    .stage canvas { object-fit: contain; object-position: center 92%; }
+  }
+
+  .chrome {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: var(--pad-y) var(--pad-x);
+    pointer-events: none;
+  }
+
+  main { position: relative; }   /* paints above the fixed stage by DOM order, without isolating blends */
+
+  .hero {
+    position: relative;
+    height: calc(100svh + var(--hero-runway));
+  }
+  .hero__stage {
+    position: sticky;
+    top: 0;
+    min-height: 100svh;
+    padding: var(--pad-y) var(--pad-x);
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 3fr);
+    grid-template-rows: 38svh 1fr auto;
+    column-gap: var(--gutter);
+    row-gap: 24px;
+  }
+
+  .sec2 {
+    position: relative;
+    height: calc(100svh + var(--sec2-runway));
+    overflow-x: clip;
+  }
+  .sec2__stage {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    padding: var(--pad-y) var(--pad-x);
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    grid-template-rows: 1fr auto;
+    column-gap: var(--gutter);
+  }
+
+  .shop {
+    position: relative;
+    padding: var(--section-gap) var(--pad-x) 0;
+  }
+  .shop__head {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 3fr);
+    column-gap: var(--gutter);
+    align-items: end;
+    margin-bottom: 64px;
+  }
+  .shop__grid {
+    display: grid;
+    grid-template-columns: repeat(16, minmax(0, 1fr));
+    column-gap: 24px;
+    row-gap: clamp(64px, 9vw, 136px);
+    align-items: start;
+  }
+
+  /* reference template after the shop. Everything is placed in fractions of the
+     page width (vw), the way the reference composition scales. */
+  .tpl {
+    position: relative;
+    padding-top: var(--section-gap);
+    overflow-x: clip;
+  }
+  .tpl--last { padding-bottom: var(--section-gap); }
+
+  @media (max-width: 767px) {
+    .hero__stage {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: 30svh 1fr auto;
+    }
+    .sec2 { height: auto; }
+    .sec2__stage {
+      position: relative;
+      height: auto;
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: auto 220px auto;
+      row-gap: 24px;
+    }
+    .shop__head {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .shop__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 16px;
+      row-gap: 40px;
+    }
+  }
+}
+
+/* ------------------------------------------------------------- components */
+@layer components {
+  /* brand — shrinks by transform only, never font-size */
+  .brand {
+    pointer-events: auto;
+    display: block;
+    font-size: var(--fs-brand);
+    line-height: var(--lh-display);
+    letter-spacing: var(--ls-display);
+    font-weight: 300;
+    white-space: nowrap;
+    color: var(--ink);
+    transform: scale(var(--shrink, 1));
+    transform-origin: 0 0;
+    --in-y: 0px;
+    --in-blur: 14px;
+  }
+  .brand__initial {
+    display: inline-block;
+    font-family: var(--font-initial);
+    font-weight: 400;
+    letter-spacing: 0;
+    font-size: 1.04em;
+    line-height: 0;
+    margin-right: -.02em;
+    translate: 0 -.12em;    /* lifts the crossbar clear of the ā macron */
+    color: var(--burgundy);
+  }
+
+  .burger {
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 8px;
+    width: 44px;
+    height: 44px;
+    & span { display: block; width: 36px; height: 1.5px; background: var(--ink); }
+  }
+
+  /* hero */
+  .hero__nav {
+    grid-area: 1 / 2;
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    & a { color: var(--ink); transition: color .2s ease; }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .hero__nav a:hover { color: var(--ink-64); }
+  }
+  .hero__lede {
+    grid-area: 2 / 1;
+    align-self: end;
+    max-width: var(--measure-body);
+    text-wrap: pretty;
+  }
+  .hero__cta { grid-area: 3 / 1; justify-self: start; }
+
+  .btn,
+  .icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    border-radius: 4px;
+    background: var(--ink-08);
+    color: var(--ink);
+    transition: background-color .3s var(--ease-expo), color .3s var(--ease-expo), transform .2s var(--ease-expo);
+    &:active { transform: scale(.97); }
+  }
+  .btn { padding: 10px 24px; }
+  .icon-btn {
+    width: 44px;
+    & svg { width: 18px; height: 18px; }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn:hover,
+    .icon-btn:hover { background: var(--ink); color: var(--bg); }
+  }
+
+  /* craft */
+  .sec2__statement {
+    grid-area: 1 / 1;
+    align-self: center;
+    position: relative;
+    z-index: 2;
+    max-width: var(--measure-h1);
+    padding-top: calc(var(--brand-min-h) + var(--pad-y));
+  }
+  .word { display: inline-block; }
+
+  .specs {
+    grid-area: 2 / 2;
+    justify-self: end;
+    align-self: end;
+    position: relative;
+    z-index: 2;
+    width: min(100%, var(--measure-lead));
+  }
+  .specs__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding-block: 12px;
+    border-top: 1px solid var(--line);
+    &:last-child { border-bottom: 1px solid var(--line); }
+  }
+
+  /* textile collage — centre corridor stays empty for the plate */
+  .mats {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .mat {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--w);
+    max-width: var(--mat-max);
+    height: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+    --in-blur: var(--mat-blur, 12px);
+    --out-blur: 0px;
+    &[data-depth="back"] { z-index: 1; }
+    &[data-depth="front"] { z-index: 3; }
+  }
+  [data-mat="bandhani"] { --x: 4%;  --y: 74%; --w: 180px; }
+  [data-mat="mirror"]   { --x: 27%; --y: 6%;  --w: 170px; }
+  [data-mat="zari"]     { --x: 84%; --y: 30%; --w: 180px; transform: scale(-1, -1); }
+  [data-mat="phulkari"] { --x: 66%; --y: 40%; --w: 135px; transform: scaleX(-1); }
+  [data-mat="ajrakh"]   { --x: 76%; --y: 5%;  --w: 160px; }
+
+  /* shop */
+  .shop__title {
+    grid-area: 1 / 1;
+    margin-left: -.04em;
+    --in-y: 24px;
+    --in-blur: 14px;
+  }
+  .shop__lede {
+    grid-area: 1 / 2;
+    max-width: var(--measure-lead);
+    text-wrap: pretty;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    color: var(--ink);
+    transition: transform .25s var(--ease-expo);
+    --in-y: 40px;
+    --in-blur: 12px;
+    &:active { transform: scale(.985); }
+  }
+  .card__media {
+    display: block;
+    aspect-ratio: var(--ar, 1);
+    margin-bottom: 12px;
+    overflow: hidden;
+    background: var(--studio);
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: var(--pos, 50% 30%);
+      transition: scale .9s var(--ease-out);
+    }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .card:hover .card__media img { scale: 1.03; }
+  }
+  .card__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .card__tag { display: block; }
+
+  .card--a1 { grid-column: 1 / 4;  grid-row: 1; }
+  .card--a2 { grid-column: 4 / 7;  grid-row: 1; }
+  .card--a3 { grid-column: 9 / 17; grid-row: 1; }
+  .card--b1 { grid-column: 1 / 4;  grid-row: 2; }
+  .card--b2 { grid-column: 6 / 9;  grid-row: 2; }
+  .card--b3 { grid-column: 9 / 12; grid-row: 2; }
+
+  /* ---------------------------------------------- reference template */
+  .tpl-title {
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .frame {
+    position: absolute;
+    overflow: hidden;
+    background: var(--studio);
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: var(--pos, 50% 50%);
+      scale: var(--zoom, 1);
+      transform-origin: var(--focus, 50% 50%);
+    }
+  }
+
+  /* about: lower-face crop, copy, close-up, standing look; title across the seam */
+  .about { position: relative; height: 31vw; }
+  /* the title crosses two photos: ink over the page, pearl over the photos, cut at their edges
+     (photo edges sit 5.1vw and 7.1vw–36.4vw from the title's left) */
+  .about__title {
+    position: absolute;
+    z-index: 2;
+    left: 27.6vw;
+    top: 3vw;
+    font-size: 3.2vw;
+    color: var(--ink);
+    --cut: linear-gradient(90deg, transparent 0 5.1vw, #000 5.1vw 7.1vw, transparent 7.1vw 36.4vw, #000 36.4vw);
+    -webkit-mask-image: var(--cut);
+    mask-image: var(--cut);
+  }
+  .about__title--on {
+    color: var(--pearl);
+    --cut: linear-gradient(90deg, #000 0 5.1vw, transparent 5.1vw 7.1vw, #000 7.1vw 36.4vw, transparent 36.4vw);
+  }
+  .about__small { left: 17.2vw; top: 0; width: 15.5vw; aspect-ratio: 157 / 128; }
+  .about__eye   { left: 34.7vw; top: 0; width: 29.3vw; aspect-ratio: 297 / 307; }
+  .about__stand { left: 66vw; top: .5vw; width: 20vw; aspect-ratio: 203 / 302; }
+  .about__copy {
+    position: absolute;
+    left: 14vw;
+    top: 16.6vw;
+    width: 18.3vw;
+    display: grid;
+    gap: 1vw;
+  }
+  .about__name { font-size: 1.8vw; }
+  .about__text { font-size: max(13px, 1.05vw); line-height: 1.6; letter-spacing: 0; color: var(--ink-88); }
+
+  /* our collections: one sharp model, faded flankers, labels and counter */
+  .lineup__title { text-align: center; font-size: 3.4vw; }
+  .lineup {
+    position: relative;
+    height: 46vw;
+    margin-top: 5vw;
+    touch-action: pan-y;
+    outline-offset: 8px;
+    --k: 1;
+  }
+  .look {
+    position: absolute;
+    left: 50%;
+    top: 20vw;
+    height: 40vw;
+    aspect-ratio: 2 / 3;
+    translate: calc(-50% + var(--x, 0) * var(--k) * 1vw) -50%;
+    scale: var(--s, 1);
+    opacity: var(--o, 1);
+    z-index: var(--z, 1);
+    transition: translate 1s var(--ease-out), scale 1s var(--ease-out), opacity .7s var(--ease-out);
+    &.is-wrap { transition: none; }
+    &[aria-current="true"] { cursor: default; }
+    &.is-away { pointer-events: none; }
+    & img { width: 100%; height: 100%; object-fit: contain; object-position: 50% 100%; }
+  }
+  .lineup__meta {
+    position: absolute;
+    z-index: 20;
+    left: calc(50% - 22.7vw);
+    top: 3.3vw;
+    display: grid;
+    gap: 1.5vw;
+    pointer-events: none;
+    & > div:nth-child(n + 2) { margin-left: 1.9vw; }
+  }
+  .lineup__looks {
+    position: absolute;
+    z-index: 20;
+    left: calc(50% - 22.1vw);
+    top: 33.4vw;
+    pointer-events: none;
+  }
+  .lineup__k { font-size: 1.8vw; font-weight: 400; text-transform: uppercase; letter-spacing: .04em; line-height: 1.15; }
+  .lineup__v { font-size: max(11px, .95vw); line-height: 1.4; letter-spacing: 0; color: var(--ink-64); }
+  .lineup__ctrl {
+    position: absolute;
+    z-index: 20;
+    left: 50%;
+    top: 41.2vw;
+    translate: -50% 0;
+    display: flex;
+    align-items: center;
+  }
+  .lineup__arrow {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    color: var(--ink-64);
+    transition: color .3s ease;
+    & svg { width: 16px; height: 16px; }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .lineup__arrow:hover { color: var(--ink); }
+  }
+  .lineup__count {
+    min-width: 4.5em;
+    text-align: center;
+    font-size: max(12px, .95vw);
+    letter-spacing: .02em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* campaign: offset mosaic, title over the centre image, tiles bleeding off both edges */
+  .campaign { position: relative; height: 46.8vw; }
+  .ctile--a     { left: -10.55vw; top: 0;     width: 12.45vw; height: 15.8vw; }
+  .ctile--b     { left: -10.55vw; top: 18vw; width: 12.45vw; height: 15.8vw; }
+  .ctile--left  { left: 4vw;      top: 0;     width: 25.7vw;  height: 32.8vw; }
+  .ctile--main  { left: 31.7vw;   top: 0;     width: 36.6vw;  height: 46.8vw; }
+  .ctile--s1    { left: 70.4vw;   top: 0;     width: 12.45vw; height: 15.8vw; }
+  .ctile--s2    { left: 70.4vw;   top: 18vw; width: 12.45vw; height: 15.8vw; }
+  .ctile--right { left: 84.8vw;   top: 14vw; width: 25.7vw;  height: 32.8vw; }
+  .ctile img { transition: scale 1.2s var(--ease-out); }
+  @media (hover: hover) and (pointer: fine) {
+    .ctile:hover img { scale: calc(var(--zoom, 1) * 1.03); }
+  }
+  .campaign__title {
+    position: absolute;
+    z-index: 2;
+    inset: 2.6vw 0 auto;
+    text-align: center;
+    color: #fff;
+    font-size: 3vw;
+  }
+
+  /* project: accordion list on the left, one large image on the right */
+  .project {
+    display: grid;
+    grid-template-columns: 44vw 44vw;
+    grid-template-rows: auto 1fr;
+    column-gap: 4vw;
+    padding-inline: 4vw;
+    align-items: start;
+  }
+  .project__title { grid-area: 1 / 1; font-size: 3vw; }
+  .project__list { grid-area: 2 / 1; position: relative; margin-top: 3.6vw; }
+  .project__media {
+    grid-area: 1 / 2 / 3 / 3;
+    position: relative;
+    margin-top: 4.6vw;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--studio);
+  }
+  .project__frame {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity .9s var(--ease-out);
+    &.is-active { opacity: 1; }
+    & img { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 50% 50%); }
+  }
+  .acc {
+    border-top: 1px solid var(--hair);
+    &:last-child { border-bottom: 1px solid var(--hair); }
+  }
+  .acc__btn {
+    width: 100%;
+    min-height: 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: .85vw .6vw;
+    font-size: max(13px, 1.3vw);
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .acc__icon {
+    position: relative;
+    width: max(12px, 1.25vw);
+    aspect-ratio: 1;
+    flex: none;
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      inset: calc(50% - .75px) 0 auto;
+      height: 1.5px;
+      background: currentColor;
+      transition: rotate .5s var(--ease-out);
+    }
+    &::after { rotate: 90deg; }
+  }
+  .acc.is-open .acc__icon::after { rotate: 0deg; }
+  .acc__panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .6s var(--ease-out);
+    & > div { overflow: hidden; }
+  }
+  .acc.is-open .acc__panel { grid-template-rows: 1fr; }
+  .acc__body {
+    max-width: 41vw;
+    padding: 0 .6vw 1.4vw;
+    font-size: max(13px, 1.02vw);
+    line-height: 1.65;
+    letter-spacing: 0;
+    color: var(--ink-88);
+  }
+  .project__peek {
+    position: absolute;
+    z-index: 5;
+    left: 0;
+    top: 0;
+    width: 8.4vw;
+    aspect-ratio: 85 / 60;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0;
+    translate: var(--px, 0) var(--py, 0);
+    transition: opacity .3s ease;
+    background: var(--studio);
+    & img { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 50% 50%); }
+  }
+  .project__list.is-peeking .project__peek { opacity: 1; }
+
+  @media (max-width: 767px) {
+    .hero__nav { display: none; }
+    .hero__lede { grid-area: 2 / 1; }
+    .hero__cta { grid-area: 3 / 1; }
+
+    .sec2__statement { grid-area: 1 / 1; align-self: start; }
+    .mats {
+      position: relative;
+      inset: auto;
+      grid-area: 2 / 1;
+      height: 220px;
+    }
+    .mat { width: calc(var(--w) * .66); }
+    [data-mat="bandhani"] { --x: -4%; --y: 58%; }
+    [data-mat="ajrakh"]   { --x: 34%; --y: 4%; }
+    [data-mat="phulkari"] { --x: 26%; --y: 42%; }
+    [data-mat="mirror"]   { --x: 64%; --y: 50%; }
+    [data-mat="zari"]     { --x: 62%; --y: 0%; }
+    .specs { grid-area: 3 / 1; justify-self: stretch; width: 100%; }
+
+    .shop__title,
+    .shop__lede { grid-area: auto; }
+    .card { grid-column: auto; grid-row: auto; }
+    .card--a3 { grid-column: 1 / -1; }
+
+    .tpl { padding-inline: var(--pad-x); }
+    .about {
+      height: auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 12px;
+    }
+    .about__title { position: static; grid-column: 1 / -1; font-size: 8.5vw; margin-bottom: 12px; white-space: normal; -webkit-mask-image: none; mask-image: none; }
+    .about__title--on { display: none; }
+    .about .frame { position: relative; left: auto; top: auto; width: auto; }
+    .about__eye { grid-column: 1 / -1; order: 1; }
+    .about__small { aspect-ratio: 203 / 302; order: 2; }
+    .about__stand { order: 3; }
+    .about__copy { position: static; grid-column: 1 / -1; order: 4; width: auto; gap: 10px; margin-top: 12px; }
+    .about__name { font-size: 5.5vw; }
+    .about__text { font-size: 15px; }
+
+    .lineup__title { font-size: 8.5vw; }
+    .lineup { --k: 2.4; height: 114vw; margin-top: 32px; }
+    .look { top: 54vw; height: 92vw; }
+    .lineup__meta {
+      left: 0;
+      top: 0;
+      grid-template-columns: repeat(3, auto);
+      justify-content: space-between;
+      width: 100%;
+      gap: 12px;
+      & > div:nth-child(n + 2) { margin-left: 0; }
+    }
+    .lineup__looks { display: none; }
+    .lineup__k { font-size: 3.6vw; }
+    .lineup__v { font-size: 12px; }
+    .lineup__ctrl { top: 104vw; }
+
+    .campaign {
+      height: auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 8px;
+    }
+    .campaign .frame { position: relative; left: auto; top: auto; width: auto; height: auto; }
+    .ctile--a,
+    .ctile--b { display: none; }
+    .ctile--main { grid-column: 1 / -1; order: -1; aspect-ratio: 366 / 468; }
+    .ctile--left,
+    .ctile--right { aspect-ratio: 257 / 328; }
+    .ctile--s1,
+    .ctile--s2 { order: 1; aspect-ratio: 126 / 160; }
+    .campaign__title { font-size: 8.5vw; top: 5vw; }
+
+    .project {
+      grid-template-columns: minmax(0, 1fr);
+      padding-inline: 0;
+    }
+    .project__title { grid-area: auto; font-size: 8.5vw; }
+    .project__media { grid-area: auto; margin-top: 24px; }
+    .project__list { grid-area: auto; margin-top: 24px; }
+    .acc__btn { padding: 12px 0; font-size: 14px; }
+    .acc__body { max-width: none; padding: 0 0 16px; font-size: 15px; }
+    .project__peek { display: none; }
+  }
+}
+
+/* ----------------------------------------------------------------- motion */
+@layer motion {
+  /* reveal contract: --in / --out are written on each element by the RAF loop */
+  [data-reveal] {
+    opacity: calc(var(--in, 1) * (1 - var(--out, 0)));
+    translate: 0 calc((1 - var(--in, 1)) * var(--in-y) - var(--out, 0) * var(--out-y));
+  }
+  .js [data-reveal] { --in: 0; }
+  [data-reveal].is-anim {
+    filter: blur(calc((1 - var(--in, 1)) * var(--in-blur) + var(--out, 0) * var(--out-blur)));
+  }
+  [data-reveal].is-hidden { visibility: hidden; }
+  .mat { translate: none; }
+
+  .plate {
+    opacity: 0;
+    transition: opacity 240ms linear;
+    &.is-live { opacity: 1; }
+  }
+  .stage.is-blurring { filter: blur(calc(var(--stage-out, 0) * 24px)); }
+  .is-covered { visibility: hidden; }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+      --in-y: 0px;
+      --out-y: 0px;
+      --in-blur: 0px;
+      --out-blur: 0px;
+    }
+    .stage.is-blurring { filter: none; }
+    .card__media img,
+    .ctile img,
+    .look,
+    .project__frame,
+    .project__peek,
+    .acc__panel,
+    .acc__icon::before,
+    .acc__icon::after { transition: none; }
+  }
+}
+
+/* -------------------------------------------------------------- utilities */
+@layer utilities {
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+  .is-ghost   { color: var(--ghost); }
+  .is-demoted { color: var(--ink-64); }
+  .is-muted   { color: var(--ink-32); }
+
+  /* smooth scroll (Lenis) */
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+  .lenis.lenis-stopped { overflow: clip; }
+}
+</style>
+</head>
+<body>
+
+<div id="stage" class="stage" aria-hidden="true">
+  <div id="layerA" class="stage__layer">
+    <video id="v1" src="https://d8j0ntlcm91z4.cloudfront.net/user_3GJaYKPxdnQG0Q9O26lu6DPmcHu/hf_20260912_155845_0dc2a196-b8a2-414c-94bb-80854ed49125.mp4" muted playsinline preload="auto"></video>
+    <canvas id="c1" class="plate" width="1920" height="1080"></canvas>
+  </div>
+  <div id="layerB" class="stage__layer stage__b">
+    <video id="v2" src="https://d8j0ntlcm91z4.cloudfront.net/user_3GJaYKPxdnQG0Q9O26lu6DPmcHu/hf_20260912_150800_16535fd3-9669-4a4e-bc00-c844ef487bd9.mp4" muted playsinline preload="metadata"></video>
+    <canvas id="c2" class="plate" width="1920" height="1080"></canvas>
+  </div>
+</div>
+
+<header class="chrome">
+  <a class="brand" href="#top" data-reveal="display" style="--i:0"><span class="brand__initial">T</span>āvra.</a>
+  <button class="burger" type="button" aria-label="Menu" aria-expanded="false" data-reveal style="--i:4"><span></span><span></span></button>
+</header>
+
+<main>
+  <section id="top" class="hero">
+    <div class="hero__stage">
+      <h1 class="sr-only">TĀVRA. Indo-western sportswear for women.</h1>
+      <nav class="hero__nav" aria-label="Primary">
+        <a class="t-ui" href="#collection" data-reveal style="--i:1">Collection</a>
+        <a class="t-ui" href="#craft" data-reveal style="--i:2">Craft</a>
+        <a class="t-ui" href="#campaign" data-reveal style="--i:3">Campaign</a>
+      </nav>
+      <p class="hero__lede t-body-lg" data-reveal style="--i:5">Sportswear for women, cut from India's oldest textiles. Tied, printed and embroidered by hand, made to move.</p>
+      <a class="hero__cta btn t-ui" href="#collection" data-reveal style="--i:6">See the collection</a>
+    </div>
+  </section>
+
+  <section id="craft" class="sec2">
+    <div class="sec2__stage">
+      <h2 class="sec2__statement t-h1" data-split="lines">Every piece starts with a craft that already exists: bandhani, ikat and hand-block print, cut into performance knits and finished by hand in one atelier.</h2>
+
+      <div class="mats" aria-hidden="true">
+        <img class="mat" data-mat="bandhani" data-depth="front" data-reveal alt="" width="360" height="200" decoding="async" src="assets/textiles/cut-bandhani.svg">
+        <img class="mat" data-mat="mirror" data-depth="back" data-reveal alt="" width="340" height="340" decoding="async" src="assets/textiles/cut-mirror.svg">
+        <img class="mat" data-mat="zari" data-depth="front" data-reveal alt="" width="360" height="200" decoding="async" src="assets/textiles/cut-zari.svg">
+        <img class="mat" data-mat="phulkari" data-depth="back" data-reveal alt="" width="270" height="358" decoding="async" src="assets/textiles/cut-phulkari.svg">
+        <img class="mat" data-mat="ajrakh" data-depth="front" data-reveal alt="" width="320" height="214" decoding="async" src="assets/textiles/cut-ajrakh.svg">
+      </div>
+
+      <ul class="specs">
+        <li class="specs__row t-title" data-reveal="scroll"><span>Bandhani</span><span class="is-demoted">Tied and dyed by hand in Kutch</span></li>
+        <li class="specs__row t-title" data-reveal="scroll"><span>Pochampally ikat</span><span class="is-demoted">Resist-dyed warp, stretch weft</span></li>
+        <li class="specs__row t-title" data-reveal="scroll"><span>Ajrakh block print</span><span class="is-demoted">Natural indigo and madder</span></li>
+        <li class="specs__row t-title" data-reveal="scroll"><span>Zari piping</span><span class="is-demoted">Recycled metallic thread</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="collection" class="shop" aria-labelledby="shop-title">
+    <div class="shop__head">
+      <h2 id="shop-title" class="shop__title t-display" data-reveal="scroll" style="--i:0">Shop</h2>
+      <p class="shop__lede t-body-lg" data-reveal="scroll" style="--i:1">Six pieces from the first edition. Indian artwork on technical cuts, made for the studio, the track and the street.</p>
+    </div>
+
+    <div class="shop__grid">
+      <a class="card card--a1" href="#collection" data-reveal="scroll" style="--i:2">
+        <span class="card__media" style="--ar: 2 / 3; --pos: 50% 50%"><img src="assets/photos/lotus-woman.webp" alt="Lotus Sculpt Legging in forest green with a lotus stem down one leg" width="1024" height="1536" loading="lazy" decoding="async"></span>
+        <span class="card__row t-title"><span>Lotus Sculpt Legging</span><span>€88</span></span>
+        <span class="card__tag t-small is-demoted">Lotus · Leggings</span>
+      </a>
+      <a class="card card--a2" href="#collection" data-reveal="scroll" style="--i:3">
+        <span class="card__media" style="--ar: 1 / 1; --pos: 50% 22%"><img src="assets/photos/vermilion-woman.webp" alt="Vermilion Racer Bra in red" width="1024" height="1536" loading="lazy" decoding="async"></span>
+        <span class="card__row t-title"><span>Vermilion Racer Bra</span><span>€58</span></span>
+        <span class="card__tag t-small is-demoted">Vermilion · Sports bras</span>
+      </a>
+      <a class="card card--a3" href="#collection" data-reveal="scroll" style="--i:4">
+        <span class="card__media" style="--ar: 1 / 1; --pos: 50% 24%"><img src="assets/photos/bengal-woman-v2.webp" alt="Bengal Studio Jacket in navy with illustrated tiger and botanical sleeves" width="1024" height="1536" loading="lazy" decoding="async"></span>
+        <span class="card__row t-title"><span>Bengal Studio Jacket</span><span>€145</span></span>
+        <span class="card__tag t-small is-demoted">Bengal · Jackets</span>
+      </a>
+      <a class="card card--b1" href="#collection" data-reveal="scroll" style="--i:0">
+        <span class="card__media" style="--ar: 1 / 1; --pos: 50% 58%"><img src="assets/photos/ivory-woman-v2.webp" alt="Ivory Botanical Short with a tonal botanical hem" width="1024" height="1536" loading="lazy" decoding="async"></span>
+        <span class="card__row t-title"><span>Ivory Botanical Short</span><span>€68</span></span>
+        <span class="card__tag t-small is-demoted">Ivory · Shorts</span>
+      </a>
+      <a class="card card--b2" href="#collection" data-reveal="scroll" style="--i:1">
+        <span class="card__media" style="--ar: 2 / 3; --pos: 50% 50%"><img src="assets/photos/paisley-woman.webp" alt="Paisley Motion Zip Top in burgundy and indigo paisley" width="1024" height="1536" loading="lazy" decoding="async"></span>
+        <span class="card__row t-title"><span>Paisley Motion Zip Top</span><span>€98</span></span>
+        <span class="card__tag t-small is-demoted">Vermilion · Tops</span>
+      </a>
+      <a class="card card--b3" href="#collection" data-reveal="scroll" style="--i:2">
+        <span class="card__media" style="--ar: 1 / 1; --pos: 50% 26%"><img src="assets/photos/noir-woman-v2.webp" alt="Noir Sculpt Vest in black with tonal lotus linework" width="1024" height="1536" loading="lazy" decoding="async"></span>
+        <span class="card__row t-title"><span>Noir Sculpt Vest</span><span>€135</span></span>
+        <span class="card__tag t-small is-demoted">Noir · Jackets</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="about" class="tpl" aria-labelledby="about-title">
+    <div class="about">
+      <h2 id="about-title" class="about__title tpl-title" data-reveal="scroll" style="--i:0">About TĀVRA</h2>
+      <p class="about__title about__title--on tpl-title" aria-hidden="true" data-reveal="scroll" style="--i:0">About TĀVRA</p>
+      <figure class="frame about__small" data-reveal="scroll" style="--i:1"><img src="assets/photos/portrait-woman-color-v4.webp" alt="" width="1145" height="1374" loading="lazy" decoding="async" style="--zoom: 2; --focus: 56% 50%"></figure>
+      <figure class="frame about__eye" data-reveal="scroll" style="--i:2"><img src="assets/photos/portrait-woman-color-v4.webp" alt="Close-up portrait of a TĀVRA model" width="1145" height="1374" loading="lazy" decoding="async" style="--zoom: 2.3; --focus: 55% 30%"></figure>
+      <figure class="frame about__stand" data-reveal="scroll" style="--i:3"><img src="assets/photos/lotus-woman.webp" alt="Model in the forest Lotus set" width="1024" height="1536" loading="lazy" decoding="async" style="--pos: 50% 0%"></figure>
+      <div class="about__copy" data-reveal="scroll" style="--i:2">
+        <h3 class="about__name tpl-title">Heritage in motion</h3>
+        <p class="about__text">Indian artistry with a contemporary point of view. TĀVRA redraws lotus, tiger and paisley prints onto clean athletic lines, for women who train, travel and live in what they wear.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="lineup" class="tpl" aria-labelledby="lineup-title">
+    <h2 id="lineup-title" class="lineup__title tpl-title" data-reveal="scroll" style="--i:0">Our collections</h2>
+    <div class="lineup" tabindex="0" role="region" aria-roledescription="carousel" aria-label="TĀVRA looks. Use the arrow keys to browse." data-reveal="scroll" style="--i:1">
+      <div class="lineup__meta">
+        <div><p class="lineup__k">Collections</p><p class="lineup__v" data-meta="collection">Lotus</p></div>
+        <div><p class="lineup__k">Edition</p><p class="lineup__v">First edition / 2026</p></div>
+        <div><p class="lineup__k">Lineup</p><p class="lineup__v">01–06</p></div>
+      </div>
+      <div class="lineup__looks"><p class="lineup__k">Looks</p><p class="lineup__v" data-meta="look">Look 01</p></div>
+      <button class="look" type="button" data-collection="Lotus" data-name="Lotus Sculpt set" style="--x:0;--s:1;--o:1;--z:10"><img src="assets/photos/lotus-woman.webp" alt="" width="1024" height="1536" decoding="async"></button>
+      <button class="look" type="button" data-collection="Vermilion" data-name="Vermilion Racer set" style="--x:19.3;--s:.5;--o:.3;--z:9"><img src="assets/photos/vermilion-woman.webp" alt="" width="1024" height="1536" decoding="async"></button>
+      <button class="look" type="button" data-collection="Bengal" data-name="Bengal Studio set" style="--x:33.9;--s:.5;--o:.3;--z:8"><img src="assets/photos/bengal-woman-v2.webp" alt="" width="1024" height="1536" decoding="async"></button>
+      <button class="look is-away" type="button" data-collection="Ivory" data-name="Ivory Botanical set" style="--x:48.5;--s:.5;--o:0;--z:7"><img src="assets/photos/ivory-woman-v2.webp" alt="" width="1024" height="1536" decoding="async"></button>
+      <button class="look" type="button" data-collection="Vermilion" data-name="Paisley Motion set" style="--x:-33.9;--s:.5;--o:.3;--z:8"><img src="assets/photos/paisley-woman.webp" alt="" width="1024" height="1536" decoding="async"></button>
+      <button class="look" type="button" data-collection="Noir" data-name="Noir Sculpt set" style="--x:-19.3;--s:.5;--o:.3;--z:9"><img src="assets/photos/noir-woman-v2.webp" alt="" width="1024" height="1536" decoding="async"></button>
+      <div class="lineup__ctrl">
+        <button class="lineup__arrow" type="button" data-step="-1" aria-label="Previous look"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M15 8H1.5M6.5 3 1.5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button>
+        <span class="lineup__count" aria-live="polite">01/06</span>
+        <button class="lineup__arrow" type="button" data-step="1" aria-label="Next look"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 8h13.5M9.5 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="campaign" class="tpl" aria-label="Campaign">
+    <div class="campaign">
+      <figure class="frame ctile ctile--a" data-reveal="scroll" style="--i:0"><img src="assets/photos/textile.webp" alt="" width="1536" height="1024" loading="lazy" decoding="async" style="--pos: 85% 50%"></figure>
+      <figure class="frame ctile ctile--b" data-reveal="scroll" style="--i:1"><img src="assets/photos/movement-woman-v2.webp" alt="" width="1672" height="941" loading="lazy" decoding="async" style="--pos: 90% 50%"></figure>
+      <figure class="frame ctile ctile--left" data-reveal="scroll" style="--i:1"><img src="assets/photos/portrait-woman-color-v4.webp" alt="Portrait of a model in an emerald high collar" width="1145" height="1374" loading="lazy" decoding="async" style="--pos: 50% 40%"></figure>
+      <figure class="frame ctile ctile--main" data-reveal="scroll" style="--i:2"><h2 class="campaign__title tpl-title">Campaign</h2><img src="assets/photos/puffer-campaign-color-v4.webp" alt="Model in a marigold puffer vest over plum layers" width="1024" height="1536" loading="lazy" decoding="async" style="--pos: 50% 30%"></figure>
+      <figure class="frame ctile ctile--s1" data-reveal="scroll" style="--i:3"><img src="assets/photos/bengal-woman-v2.webp" alt="Bengal Studio Jacket with illustrated tiger sleeves" width="1024" height="1536" loading="lazy" decoding="async" style="--pos: 50% 12%"></figure>
+      <figure class="frame ctile ctile--s2" data-reveal="scroll" style="--i:4"><img src="assets/photos/women-campaign-v2.webp" alt="Three women in TĀVRA activewear" width="1536" height="1024" loading="lazy" decoding="async" style="--pos: 50% 50%"></figure>
+      <figure class="frame ctile ctile--right" data-reveal="scroll" style="--i:4"><img src="assets/photos/backdrop-woman-v3.webp" alt="Model wrapped in a midnight-blue puffer" width="1024" height="1536" loading="lazy" decoding="async" style="--pos: 50% 30%"></figure>
+    </div>
+  </section>
+
+  <section id="project" class="tpl tpl--last" aria-labelledby="project-title">
+    <div class="project">
+      <h2 id="project-title" class="project__title tpl-title" data-reveal="scroll" style="--i:0">Project</h2>
+      <div class="project__media" data-reveal="scroll" style="--i:1">
+        <span class="project__frame is-active"><img src="assets/photos/movement-woman-v2.webp" alt="Model in the Lotus set, stretching" width="1672" height="941" loading="lazy" decoding="async" style="--pos: 68% 50%"></span>
+        <span class="project__frame"><img src="assets/photos/bengal-woman-v2.webp" alt="Bengal Studio Jacket" width="1024" height="1536" loading="lazy" decoding="async" style="--pos: 50% 30%"></span>
+        <span class="project__frame"><img src="assets/photos/textile.webp" alt="Lotus and paisley textile artwork" width="1536" height="1024" loading="lazy" decoding="async" style="--pos: 40% 50%"></span>
+        <span class="project__frame"><img src="assets/photos/women-campaign-v2.webp" alt="Three women in TĀVRA everyday activewear" width="1536" height="1024" loading="lazy" decoding="async" style="--pos: 50% 50%"></span>
+      </div>
+      <div class="project__list">
+        <div class="project__peek" aria-hidden="true"><img alt="" decoding="async"></div>
+        <div class="acc is-open" data-reveal="scroll" style="--i:1">
+          <h3><button class="acc__btn" type="button" id="acc-1" aria-expanded="true" aria-controls="acc-p1"><span>TĀVRA × Lotus</span><span class="acc__icon" aria-hidden="true"></span></button></h3>
+          <div class="acc__panel" id="acc-p1" role="region" aria-labelledby="acc-1"><div><p class="acc__body">Pichwai lotus ponds, redrawn as a single stem that runs down the outer seam of a forest-green legging. Botanical rhythm for the studio and the street.</p></div></div>
+        </div>
+        <div class="acc" data-reveal="scroll" style="--i:2">
+          <h3><button class="acc__btn" type="button" id="acc-2" aria-expanded="false" aria-controls="acc-p2"><span>TĀVRA × Bengal</span><span class="acc__icon" aria-hidden="true"></span></button></h3>
+          <div class="acc__panel" id="acc-p2" role="region" aria-labelledby="acc-2" inert><div><p class="acc__body">Tiger and jungle illustrations move onto the sleeves of a navy track jacket. The body stays clean and athletic, and the artwork carries the story.</p></div></div>
+        </div>
+        <div class="acc" data-reveal="scroll" style="--i:3">
+          <h3><button class="acc__btn" type="button" id="acc-3" aria-expanded="false" aria-controls="acc-p3"><span>TĀVRA × Print</span><span class="acc__icon" aria-hidden="true"></span></button></h3>
+          <div class="acc__panel" id="acc-p3" role="region" aria-labelledby="acc-3" inert><div><p class="acc__body">Lotus stems, paisley and block-print geometry become considered placements on contemporary athletic shapes. Original artwork with Indian roots.</p></div></div>
+        </div>
+        <div class="acc" data-reveal="scroll" style="--i:4">
+          <h3><button class="acc__btn" type="button" id="acc-4" aria-expanded="false" aria-controls="acc-p4"><span>TĀVRA × Everyday</span><span class="acc__icon" aria-hidden="true"></span></button></h3>
+          <div class="acc__panel" id="acc-p4" role="region" aria-labelledby="acc-4" inert><div><p class="acc__body">Ivory, forest, vermilion and navy. Essentials for training, recovery and the hours in between.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script type="module">
+const root = document.documentElement;
+
+try {
+  boot();
+} catch (err) {
+  console.error('[tavra] boot failed — showing rested layout', err);
+  root.classList.remove('js');
+}
+
+function boot() {
+  /* ================================================================ helpers */
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const clamp01 = v => (v < 0 ? 0 : v > 1 ? 1 : v);
+  const expoOut = t => (t >= 1 ? 1 : 1 - Math.pow(2, -10 * t));
+  const cubicOut = t => 1 - Math.pow(1 - t, 3);
+  const r3 = v => Math.round(v * 1000) / 1000;
+  const lag = (cur, target, dt, tau) => cur + (target - cur) * (1 - Math.exp(-dt * tau));
+  const indexOf = el => parseFloat(el.style.getPropertyValue('--i')) || 0;
+  const docTop = el => { let y = 0; for (let e = el; e; e = e.offsetParent) y += e.offsetTop; return y; };
+
+  const memo = new WeakMap();
+  const stateOf = el => { let m = memo.get(el); if (!m) memo.set(el, (m = {})); return m; };
+  const flag = (el, cls, on) => { const m = stateOf(el); if (m[cls] !== on) { m[cls] = on; el.classList.toggle(cls, on); } };
+  const setVar = (el, name, v) => { const m = stateOf(el); if (m[name] !== v) { m[name] = v; el.style.setProperty(name, v); } };
+
+  const mqReduce = matchMedia('(prefers-reduced-motion: reduce)');
+  let reduced = mqReduce.matches;
+  mqReduce.addEventListener('change', e => { reduced = e.matches; });
+
+  /* ======================================================== smooth scroll */
+  // Lenis eases wheel scrolling; it is advanced from the single RAF loop below.
+  const lenis = window.Lenis && !reduced
+    ? new window.Lenis({ autoRaf: false, anchors: true, lerp: 0.1 })
+    : null;
+
+  /* ========================================================== choreography */
+  const ENTER = { STEP: 0.09, DUR: 0.9, DUR_DISPLAY: 1.4, FAILSAFE: 2500 };
+  const HERO_EXIT = { START: 0.06, STEP: 0.07, DUR: 0.45 };
+  const SHRINK_UNTIL = 0.85;
+  const LINES = { START: 0.03, STEP: 0.045, DUR: 0.15, OUT_START: 0.82, OUT_STEP: 0.02, OUT_DUR: 0.12 };
+  const FLOW = { FROM: 0.92, TO: 0.62, STAGGER: 0.11, WINDOW: 0.18 };
+  const MAT_WIN = {
+    pinned: { inStart: 0.22, inStep: 0.05, inDur: 0.28, outStart: 0.70, outStep: 0.02, outDur: 0.14 },
+    flow:   { inStart: 0.28, inStep: 0.06, inDur: 0.32, outStart: 0.78, outStep: 0.02, outDur: 0.14 },
+  };
+  const MAT_LAND = 0.62;
+  const MAT_EDGE = 60;
+  // key: from, k, speed, drift, rot, tau, spin, bow, s0, tilt, blur
+  const MAT = {
+    'bandhani': { from: 'left',   k: 0, speed: 0.46, drift: -0.30, rot: 1.4,  tau: 5, spin: -18, bow: 70,  s0: 1.10, tilt: -6, blur: 12 },
+    'ajrakh':   { from: 'top',    k: 1, speed: 0.42, drift: 0.26,  rot: -1.0, tau: 6, spin: 14,  bow: -50, s0: 1.08, tilt: 5,  blur: 12 },
+    'zari':     { from: 'right',  k: 2, speed: 0.60, drift: 0.28,  rot: -0.6, tau: 4, spin: 16,  bow: 60,  s0: 1.12, tilt: 4,  blur: 14 },
+    'mirror':   { from: 'top',    k: 3, speed: 0.30, drift: 0.24,  rot: -1.2, tau: 7, spin: -12, bow: 40,  s0: 0.92, tilt: 8,  blur: 10 },
+    'phulkari': { from: 'bottom', k: 4, speed: 0.18, drift: 0.16,  rot: 0.5,  tau: 8, spin: 10,  bow: -90, s0: 0.90, tilt: 12, blur: 10 },
+  };
+  const PLATE = { HANDOFF: 24, TAU: 8, SNAP: 0.002, WHITEOUT: 0.5 };
+  const BANK = {
+    LRU: 24, AHEAD: 16, MIN_AHEAD: 6, INFLIGHT: 8, WATCHDOG: 60000, QUALITY: 0.82, MAX_W: 1920,
+    // still encodes run on worker threads, so the surface pool scales with cores
+    POOL: Math.max(2, Math.min(6, (navigator.hardwareConcurrency || 4) - 2)),
+  };
+
+  const lineIn = (p, r) => expoOut(clamp01((p - (LINES.START + r * LINES.STEP)) / LINES.DUR));
+  const lineOut = (p, r) => expoOut(clamp01((p - (LINES.OUT_START + r * LINES.OUT_STEP)) / LINES.OUT_DUR));
+  const flowIn = (top, i) => {
+    const t = (FLOW.FROM * vh - top) / ((FLOW.FROM - FLOW.TO) * vh);
+    return cubicOut(clamp01((t - i * FLOW.STAGGER) / FLOW.WINDOW));
+  };
+
+  /* ========================================================= reveal nodes */
+  class Reveal {
+    constructor(el) { this.el = el; this.vin = NaN; this.vout = NaN; this.anim = null; this.hidden = null; }
+    set(vin, vout) {
+      vin = r3(vin); vout = r3(vout);
+      const s = this.el.style;
+      if (vin !== this.vin) { this.vin = vin; s.setProperty('--in', vin); }
+      if (vout !== this.vout) { this.vout = vout; s.setProperty('--out', vout); }
+      const hidden = vin <= 0 || vout >= 1;
+      const anim = !hidden && (vin < 1 || vout > 0);
+      if (hidden !== this.hidden) { this.hidden = hidden; this.el.classList.toggle('is-hidden', hidden); }
+      if (anim !== this.anim) { this.anim = anim; this.el.classList.toggle('is-anim', anim); }
+    }
+  }
+
+  function splitWords(el) {
+    if (!el) return [];
+    const text = el.textContent.replace(/\s+/g, ' ').trim();
+    const frag = document.createDocumentFragment();
+    const out = [];
+    text.split(' ').forEach((w, k) => {
+      if (k) frag.append(' ');
+      const s = document.createElement('span');
+      s.className = 'word';
+      s.dataset.reveal = 'scroll';
+      s.textContent = w;
+      frag.append(s);
+      out.push(s);
+    });
+    el.replaceChildren(frag);
+    return out;
+  }
+
+  const hero = $('#top');
+  const sec2 = $('#craft');
+  const sec2Stage = $('.sec2__stage', sec2);
+  const shop = $('#collection');
+  const brand = $('.brand');
+  const nav = $('.hero__nav');
+  const stage = $('#stage');
+  const matsBox = $('.mats', sec2);
+
+  const words = splitWords($('[data-split="lines"]', sec2));
+  const heroEls = $$('[data-reveal]', hero);
+
+  const loadNodes = $$('.chrome [data-reveal], .hero [data-reveal]').map(el => Object.assign(new Reveal(el), {
+    idx: indexOf(el),
+    dur: el.dataset.reveal === 'display' ? ENTER.DUR_DISPLAY : ENTER.DUR,
+    exit: heroEls.indexOf(el),
+  }));
+  const wordNodes = words.map(el => Object.assign(new Reveal(el), { line: 0, nth: 0, top: 0 }));
+  const specNodes = $$('.specs__row', sec2).map((el, r) => Object.assign(new Reveal(el), { r, top: 0 }));
+  const flowNodes = $$('main [data-reveal="scroll"]').filter(el => !sec2.contains(el))
+    .map(el => Object.assign(new Reveal(el), { idx: indexOf(el), top: 0 }));
+  const mats = $$('.mat', matsBox).map(el => {
+    const m = Object.assign(new Reveal(el), MAT[el.dataset.mat], { p: null, l: 0, t: 0, w: 0, h: 0, tr: '', ro: '', sc: '' });
+    el.style.setProperty('--mat-blur', `${m.blur}px`);
+    return m;
+  });
+
+  /* ============================================================== measure */
+  let dirty = true;
+  let vw = 0, vh = 0, heroTop = 0, heroSpan = 0, sec2Top = 0, sec2Span = 0, shopTop = 0;
+  let pinned = true, shrinkEnd = 0.32, travel = 520, rotK = 4;
+  let matsLeft = 0, matsTop = 0, matsH = 0, firstWordTop = 0;
+
+  function measure() {
+    dirty = false;
+    vw = root.clientWidth;
+    vh = window.innerHeight;
+    heroTop = docTop(hero);
+    heroSpan = Math.max(0, hero.offsetHeight - vh);
+    sec2Top = docTop(sec2);
+    sec2Span = Math.max(0, sec2.offsetHeight - vh);
+    shopTop = docTop(shop);
+    pinned = getComputedStyle(sec2Stage).position === 'sticky';
+
+    // group words into lines by offsetTop, after layout
+    let line = -1, lastTop = -Infinity, nth = 0, lineTop = 0;
+    for (const n of wordNodes) {
+      const t = n.el.offsetTop;
+      if (Math.abs(t - lastTop) > 2) { line++; lastTop = t; nth = 0; lineTop = docTop(n.el); }
+      n.line = line;
+      n.nth = nth++;
+      n.top = lineTop;
+    }
+    firstWordTop = wordNodes.length ? wordNodes[0].top : sec2Top;
+    for (const n of specNodes) n.top = docTop(n.el);
+    for (const n of flowNodes) n.top = docTop(n.el);
+
+    const cs = getComputedStyle(root);
+    travel = parseFloat(cs.getPropertyValue('--mat-travel')) || 520;
+    rotK = parseFloat(cs.getPropertyValue('--mat-rot')) || 4;
+
+    // brand shrinks to the menu block height (offsetHeight ignores transforms)
+    // on phones (no menu block) shrink to half the menu height so the mark clears section titles
+    const menuH = getComputedStyle(nav).display !== 'none'
+      ? nav.offsetHeight
+      : (parseFloat(cs.getPropertyValue('--brand-min-h')) || 72) / 2;
+    shrinkEnd = Math.min(1, menuH / (brand.offsetHeight || menuH));
+    root.style.setProperty('--shrink-end', shrinkEnd.toFixed(3));
+
+    matsLeft = matsBox.getBoundingClientRect().left;
+    matsTop = docTop(matsBox);
+    matsH = matsBox.offsetHeight;
+    for (const m of mats) {
+      m.l = m.el.offsetLeft;
+      m.t = m.el.offsetTop;
+      m.w = m.el.offsetWidth;
+      m.h = m.el.offsetHeight;
+    }
+  }
+
+  addEventListener('resize', () => { dirty = true; });
+  addEventListener('load', () => { dirty = true; });
+  if (document.fonts) document.fonts.ready.then(() => { dirty = true; });
+  if ('ResizeObserver' in window) new ResizeObserver(() => { dirty = true; }).observe(document.body);
+
+  /* ============================================================ entrance */
+  let readyAt = -1;
+  Promise.race([
+    document.fonts ? document.fonts.ready : Promise.resolve(),
+    new Promise(r => setTimeout(r, ENTER.FAILSAFE)),
+  ]).then(() => {
+    if (readyAt >= 0) return;
+    root.classList.add('is-ready');
+    readyAt = performance.now();
+    dirty = true;
+  });
+
+  /* ======================================================== textiles */
+  function updateMats(p, dt, y) {
+    const W = pinned ? MAT_WIN.pinned : MAT_WIN.flow;
+    const top0 = pinned ? 0 : matsTop - y;
+    for (const m of mats) {
+      if (first || m.p === null) m.p = p;
+      else {
+        m.p = lag(m.p, p, dt, m.tau);
+        if (Math.abs(p - m.p) < 1e-4) m.p = p;
+      }
+      const e = cubicOut(clamp01((m.p - (W.inStart + m.k * W.inStep)) / W.inDur));
+      const o = cubicOut(clamp01((m.p - (W.outStart + m.k * W.outStep)) / W.outDur));
+      m.set(e, o);
+      if (m.hidden) continue;
+
+      let x = 0, yy = 0, rot = m.tilt, sc = 1;
+      if (!reduced) {
+        const u = 1 - e;
+        const side = Math.sin(Math.PI * e) * m.bow;
+        const q = m.p - MAT_LAND;
+        const L = matsLeft + m.l;
+        const T = top0 + m.t;
+        if (m.from === 'left')       { x -= u * (L + m.w + MAT_EDGE); yy += side; }
+        else if (m.from === 'right') { x += u * (vw - L + MAT_EDGE);  yy += side; }
+        else if (m.from === 'top')   { yy -= u * (T + m.h + MAT_EDGE); x += side; }
+        else                         { yy += u * (vh - T + MAT_EDGE);  x += side; }
+        x += q * m.speed * m.drift * travel;
+        yy -= q * m.speed * travel;
+        yy -= o * (40 + m.speed * 120);
+        rot = m.tilt + m.spin * u + q * m.rot * rotK;
+        sc = 1 + (m.s0 - 1) * u;
+      }
+      // individual transform properties compose with the CSS flip transform
+      const tr = `${x.toFixed(1)}px ${yy.toFixed(1)}px`;
+      const ro = `${rot.toFixed(2)}deg`;
+      const s = sc.toFixed(3);
+      if (tr !== m.tr) { m.tr = tr; m.el.style.translate = tr; }
+      if (ro !== m.ro) { m.ro = ro; m.el.style.rotate = ro; }
+      if (s !== m.sc) { m.sc = s; m.el.style.scale = s; }
+    }
+  }
+
+  /* ======================================================== video plate */
+  const clips = [
+    { id: 1, v: $('#v1'), c: $('#c1'), layer: $('#layerA') },
+    { id: 2, v: $('#v2'), c: $('#c2'), layer: $('#layerB') },
+  ].map(c => Object.assign(c, { cur: 0, target: 0, bank: null, ctx: null, live: false, drawn: -1, dir: 1, kicked: false }));
+
+  // iOS only paints seeks on a video that has started once
+  for (const c of clips) {
+    const prime = () => { const p = c.v.play(); if (p) p.then(() => c.v.pause(), () => {}); };
+    if (c.v.readyState >= 1) prime(); else c.v.addEventListener('loadedmetadata', prime, { once: true });
+  }
+
+  function updatePlate(y, dt) {
+    const S1 = Math.max(1, pinned ? sec2Top + LINES.START * sec2Span : firstWordTop - FLOW.FROM * vh);
+    const S2 = Math.max(S1 + 1, shopTop - vh);
+    const half = PLATE.HANDOFF / 2;
+    let t1 = clamp01(y / S1);
+    let t2 = clamp01((y - S1) / (S2 - S1));
+    let x2 = clamp01((y - (S1 - half)) / PLATE.HANDOFF);
+    if (reduced) t1 = t2 = x2 = 0;
+    const out = clamp01((y - S2) / (PLATE.WHITEOUT * vh));
+
+    setVar(stage, '--x2', r3(x2));
+    setVar(stage, '--stage-out', r3(out));
+    flag(stage, 'is-blurring', !reduced && out > 0 && out < 1);
+    flag(stage, 'is-covered', out >= 1);
+
+    clips[0].target = t1;
+    clips[1].target = t2;
+    const k = 1 - Math.exp(-dt * PLATE.TAU);
+    for (const c of clips) {
+      if (first) c.cur = c.target;
+      else {
+        c.cur += (c.target - c.cur) * k;
+        if (Math.abs(c.target - c.cur) < PLATE.SNAP) c.cur = c.target;
+      }
+      const covered = c.id === 1 ? x2 >= 1 : x2 <= 0;
+      flag(c.layer, 'is-covered', covered);
+      if (out >= 1) continue;
+      if (c.bank) paintBank(c, covered);
+      if (!c.live) seekVideo(c);
+    }
+  }
+
+  function seekVideo(c) {
+    const v = c.v;
+    if (v.readyState < 1 || !(v.duration > 0) || v.seeking) return;
+    const t = Math.min(c.cur * v.duration, Math.max(0, v.duration - 0.001));
+    if (Math.abs(v.currentTime - t) > 1 / 60 || (!c.kicked && v.readyState < 2)) {
+      c.kicked = true;
+      try { v.currentTime = t; } catch { /* not seekable yet */ }
+    }
+  }
+
+  /* ---------------------------------------- frame bank: LRU of bitmaps */
+  const KEY = 1e5;
+  const lru = new Map();
+  const pending = new Set();
+  let inflight = 0;
+
+  function want(b, idx) {
+    if (idx < 0 || idx >= b.n) return;
+    const key = b.id * KEY + idx;
+    const hit = lru.get(key);
+    if (hit) { lru.delete(key); lru.set(key, hit); return; }
+    if (pending.has(key) || inflight >= BANK.INFLIGHT) return;
+    pending.add(key);
+    inflight++;
+    createImageBitmap(b.stills[idx])
+      .then(bmp => {
+        lru.set(key, bmp);
+        while (lru.size > BANK.LRU) {
+          const [k0, b0] = lru.entries().next().value;
+          lru.delete(k0);
+          b0.close();
+        }
+      })
+      .catch(() => {})
+      .finally(() => { pending.delete(key); inflight--; });
+  }
+
+  function paintBank(c, covered) {
+    const b = c.bank, n = b.n;
+    const at = p => Math.min(n - 1, Math.max(0, Math.floor(p * n)));
+    const cur = at(c.cur), tgt = at(c.target);
+
+    want(b, cur);
+    if (!covered) {
+      const dist = Math.abs(tgt - cur);
+      const dir = tgt > cur ? 1 : tgt < cur ? -1 : c.dir;
+      c.dir = dir;
+      if (dist) want(b, tgt);
+      const span = Math.min(BANK.AHEAD, Math.max(BANK.MIN_AHEAD, dist));
+      const step = dist > BANK.AHEAD ? dist / BANK.AHEAD : 1;
+      for (let s = 1; s <= span; s++) want(b, cur + dir * Math.round(s * step));
+    }
+
+    let idx = cur;
+    let bmp = lru.get(b.id * KEY + cur);
+    if (!bmp) {
+      idx = -1;
+      let best = c.drawn >= 0 ? Math.abs(c.drawn - cur) : Infinity;
+      for (const [key, v] of lru) {
+        if (Math.floor(key / KEY) !== b.id) continue;
+        const d = Math.abs((key % KEY) - cur);
+        if (d < best) { best = d; idx = key % KEY; bmp = v; }
+      }
+    }
+    if (bmp && idx !== c.drawn) {
+      c.ctx.drawImage(bmp, 0, 0, c.c.width, c.c.height);
+      c.drawn = idx;
+      if (!c.live) { c.live = true; c.c.classList.add('is-live'); }
+    }
+  }
+
+  /* --------------------------------- frame bank: fetch → demux → decode */
+  function canEncodeWebP() {
+    try {
+      const cv = document.createElement('canvas');
+      cv.width = cv.height = 1;
+      return cv.toDataURL('image/webp').startsWith('data:image/webp');
+    } catch { return false; }
+  }
+
+  function watchdog(task, ms) {
+    const ctrl = new AbortController();
+    let timer = 0;
+    const guard = new Promise((_, reject) => {
+      timer = setTimeout(() => { ctrl.abort(); reject(new Error('watchdog')); }, ms);
+    });
+    return Promise.race([task(ctrl.signal), guard]).finally(() => clearTimeout(timer));
+  }
+
+  async function fetchClip(url, signal) {
+    const get = cache => fetch(url, { mode: 'cors', credentials: 'omit', cache, signal });
+    let res;
+    try { res = await get('default'); }
+    catch (err) { if (signal.aborted) throw err; res = await get('reload'); }
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return res.arrayBuffer();
+  }
+
+  function describe(file, track, buf) {
+    const trak = file.getTrackById(track.id);
+    for (const entry of trak.mdia.minf.stbl.stsd.entries) {
+      const box = entry.hvcC || entry.avcC || entry.vpcC || entry.av1C;
+      if (!box) continue;
+      if (Number.isFinite(box.start) && box.size > box.hdr_size && box.start + box.size <= buf.byteLength) {
+        const raw = new Uint8Array(buf, box.start + box.hdr_size, box.size - box.hdr_size);
+        if (raw[0] === 1) return raw.slice();
+      }
+      try {
+        const ds = new DataStream(undefined, 0, DataStream.BIG_ENDIAN);
+        box.write(ds);
+        return new Uint8Array(ds.buffer, 8);
+      } catch { /* fall through */ }
+    }
+    return undefined;
+  }
+
+  function demux(buf) {
+    return new Promise((resolve, reject) => {
+      const file = MP4Box.createFile();
+      const samples = [];
+      let track = null, settled = false;
+      const done = err => {
+        if (settled) return;
+        settled = true;
+        if (err) return reject(err);
+        if (!track || !samples.length) return reject(new Error('no video samples'));
+        resolve({
+          samples,
+          pts: samples.map(s => s.ts).sort((a, b) => a - b),
+          codec: track.codec,
+          width: track.video.width,
+          height: track.video.height,
+          description: describe(file, track, buf),
+        });
+      };
+      file.onError = e => done(new Error(`demux: ${e}`));
+      file.onReady = info => {
+        track = info.videoTracks[0];
+        if (!track) return done(new Error('no video track'));
+        file.setExtractionOptions(track.id, null, { nbSamples: Infinity });
+        file.start();
+      };
+      file.onSamples = (id, user, list) => {
+        for (const s of list) {
+          samples.push({
+            ts: Math.round((1e6 * s.cts) / s.timescale),
+            dur: Math.round((1e6 * s.duration) / s.timescale),
+            key: s.is_sync,
+            data: s.data,
+          });
+        }
+        if (track && samples.length >= track.nb_samples) done();
+      };
+      buf.fileStart = 0;
+      file.appendBuffer(buf);
+      file.flush();
+      setTimeout(() => done(), 0);
+    });
+  }
+
+  function nearest(arr, v) {
+    let lo = 0, hi = arr.length - 1;
+    while (lo < hi) { const mid = (lo + hi) >> 1; if (arr[mid] < v) lo = mid + 1; else hi = mid; }
+    if (lo > 0 && Math.abs(arr[lo - 1] - v) < Math.abs(arr[lo] - v)) lo--;
+    return lo;
+  }
+
+  function surface(w, h) {
+    if (typeof OffscreenCanvas === 'function') {
+      try {
+        const cv = new OffscreenCanvas(w, h);
+        const ctx = cv.getContext('2d', { alpha: false });
+        if (ctx && cv.convertToBlob) return { ctx, encode: type => cv.convertToBlob({ type, quality: BANK.QUALITY }) };
+      } catch { /* fall back to a DOM canvas */ }
+    }
+    const cv = document.createElement('canvas');
+    cv.width = w;
+    cv.height = h;
+    const ctx = cv.getContext('2d', { alpha: false });
+    return {
+      ctx,
+      encode: type => new Promise((res, rej) => cv.toBlob(b => (b ? res(b) : rej(new Error('encode failed'))), type, BANK.QUALITY)),
+    };
+  }
+
+  // decode every sample once and keep each frame as a compressed still
+  async function decodeAll(dm, accel, type, size, signal) {
+    const config = { codec: dm.codec, codedWidth: dm.width, codedHeight: dm.height, hardwareAcceleration: accel };
+    if (dm.description) config.description = dm.description;
+    const support = await VideoDecoder.isConfigSupported(config);
+    if (!support.supported) throw new Error(`${dm.codec} not decodable (${accel})`);
+
+    const { samples, pts } = dm;
+    const n = pts.length;
+    const stills = new Array(n);
+    const frames = [];
+    const pool = Array.from({ length: BANK.POOL }, () => surface(size.w, size.h));
+    let made = 0, busy = 0, fed = 0, flushing = false, flushed = false, failure = null, wake = null;
+    const poke = () => { if (wake) { const w = wake; wake = null; w(); } };
+    const nap = () => new Promise(r => { wake = r; setTimeout(poke, 30); });
+
+    const decoder = new VideoDecoder({
+      output: f => { frames.push(f); poke(); },
+      error: e => { failure = failure || e; poke(); },
+    });
+    decoder.addEventListener?.('dequeue', poke);
+    decoder.configure(config);
+
+    try {
+      for (;;) {
+        if (signal.aborted) throw new Error('aborted');
+        if (failure) throw failure;
+        while (fed < n && decoder.decodeQueueSize < 8 && frames.length < 4) {
+          const s = samples[fed++];
+          decoder.decode(new EncodedVideoChunk({ type: s.key ? 'key' : 'delta', timestamp: s.ts, duration: s.dur, data: s.data }));
+        }
+        if (fed === n && !flushing) {
+          flushing = true;
+          decoder.flush().then(() => { flushed = true; poke(); }, e => { failure = failure || e; poke(); });
+        }
+        while (frames.length && pool.length) {
+          const f = frames.shift();
+          const surf = pool.pop();
+          const idx = nearest(pts, f.timestamp);
+          surf.ctx.drawImage(f, 0, 0, size.w, size.h);
+          f.close();
+          busy++;
+          surf.encode(type)
+            .then(blob => { if (!stills[idx]) { stills[idx] = blob; made++; } }, e => { failure = failure || e; })
+            .finally(() => { busy--; pool.push(surf); poke(); });
+        }
+        if (flushed && !frames.length && !busy) break;
+        await nap();
+      }
+    } finally {
+      for (const f of frames.splice(0)) f.close();
+      if (decoder.state !== 'closed') decoder.close();
+    }
+    if (!made) throw new Error('decoder produced no frames');
+    for (let i = 0; i < n; i++) if (!stills[i]) stills[i] = stills[i - 1] || stills.find(Boolean);
+    return stills;
+  }
+
+  async function makeBank(c, type, signal) {
+    const buf = await fetchClip(c.v.currentSrc || c.v.src, signal);
+    const dm = await demux(buf);
+    const w = Math.min(dm.width, BANK.MAX_W);
+    const size = { w, h: Math.round((dm.height * w) / dm.width) };
+    let stills;
+    try {
+      stills = await decodeAll(dm, 'prefer-hardware', type, size, signal);
+    } catch (err) {
+      if (signal.aborted) throw err;
+      console.info(`[tavra] ${c.v.id}: hardware decode failed (${err && err.message}); one software retry`);
+      stills = await decodeAll(dm, 'prefer-software', type, size, signal);
+    }
+    return { id: c.id, n: stills.length, stills, ...size };
+  }
+
+  async function buildBanks() {
+    const able = 'VideoDecoder' in window && 'EncodedVideoChunk' in window && 'createImageBitmap' in window
+      && window.MP4Box && window.DataStream;
+    if (reduced || !able) return;
+    const type = canEncodeWebP() ? 'image/webp' : 'image/jpeg';
+    for (const c of clips) {           // clip 1, then clip 2
+      const t0 = performance.now();
+      try {
+        const bank = await watchdog(signal => makeBank(c, type, signal), BANK.WATCHDOG);
+        if (c.c.width !== bank.w || c.c.height !== bank.h) { c.c.width = bank.w; c.c.height = bank.h; }
+        c.ctx = c.c.getContext('2d', { alpha: false });
+        c.bank = bank;
+        console.info(`[tavra] ${c.v.id}: ${bank.n} frames banked as ${type.slice(6)} in ${((performance.now() - t0) / 1000).toFixed(1)}s`);
+      } catch (err) {
+        console.info(`[tavra] ${c.v.id}: frame bank unavailable (${err && err.message}); using <video> seeking`);
+      }
+    }
+  }
+
+  const startBanks = () => setTimeout(() => { buildBanks().catch(() => {}); }, 400);
+  if (document.readyState === 'complete') startBanks();
+  else addEventListener('load', startBanks, { once: true });
+
+  /* ============================================================== lineup */
+  // One sharp model at the centre, faded flankers either side, cycling round.
+  function lineupCtl(box) {
+    if (!box) return;
+    const looks = $$('.look', box);
+    const count = looks.length;
+    const reach = Math.min(3, Math.floor((count - 1) / 2));            // visible flankers per side
+    const extra = count - (2 * reach + 1);                              // looks waiting off-stage
+    const spread = reach >= 3 ? 1 : 1.17;                               // fewer looks spread wider
+    const offset = d => Math.sign(d) * (4 + 12.5 * Math.abs(d)) * spread;   // vw from centre
+    const pad = v => String(v).padStart(2, '0');
+    const collection = $('[data-meta="collection"]', box);
+    const lookLabel = $('[data-meta="look"]', box);
+    const counter = $('.lineup__count', box);
+    let active = 0;
+    let dir = -1;              // which side the waiting look sits on
+    let swiped = false;
+
+    const place = (el, d) => {
+      const away = Math.abs(d) > reach;
+      const slot = away ? Math.sign(d) * (reach + 1) : d;
+      el.style.setProperty('--x', d === 0 ? '0' : offset(slot).toFixed(2));
+      el.style.setProperty('--s', d === 0 ? '1' : '.5');
+      el.style.setProperty('--o', d === 0 ? '1' : away ? '0' : '.3');
+      el.style.setProperty('--z', String(10 - Math.min(Math.abs(d), reach + 1)));
+      el.classList.toggle('is-away', away);
+    };
+
+    const render = shift => {
+      const lo = -reach - (extra > 0 && dir > 0 ? 1 : 0);
+      looks.forEach((el, i) => {
+        const d = ((i - active - lo) % count + count) % count + lo;
+        const prev = el.dataset.d === undefined ? undefined : Number(el.dataset.d);
+        if (prev !== undefined && d !== prev - shift) {
+          // wrapping round the back: enter from the hidden slot on its new side, don't sweep across
+          el.classList.add('is-wrap');
+          place(el, Math.sign(d) * (reach + 1));
+          void el.offsetWidth;
+          el.classList.remove('is-wrap');
+        }
+        el.dataset.d = d;
+        place(el, d);
+        el.setAttribute('aria-current', d === 0 ? 'true' : 'false');
+        el.setAttribute('aria-label', `Look ${pad(i + 1)}: ${el.dataset.name}`);
+        el.toggleAttribute('aria-hidden', Math.abs(d) > reach);
+        el.tabIndex = d === 0 || Math.abs(d) > reach ? -1 : 0;
+      });
+      collection.textContent = looks[active].dataset.collection;
+      lookLabel.textContent = `Look ${pad(active + 1)}`;
+      counter.textContent = `${pad(active + 1)}/${pad(count)}`;
+    };
+
+    const go = step => {
+      if (!step) return;
+      dir = Math.sign(step);
+      active = (active + step + count) % count;
+      render(step);
+    };
+
+    $$('[data-step]', box).forEach(b => b.addEventListener('click', () => go(Number(b.dataset.step))));
+    looks.forEach(el => el.addEventListener('click', () => {
+      if (swiped) { swiped = false; return; }
+      const d = Number(el.dataset.d);
+      if (d && Math.abs(d) <= reach) go(d);
+    }));
+    box.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+    });
+    let x0 = null;
+    box.addEventListener('pointerdown', e => { x0 = e.clientX; swiped = false; });
+    box.addEventListener('pointerup', e => {
+      if (x0 === null) return;
+      const dx = e.clientX - x0;
+      x0 = null;
+      if (Math.abs(dx) > 40) { swiped = true; go(dx < 0 ? 1 : -1); }
+    });
+    box.addEventListener('pointercancel', () => { x0 = null; });
+    render(0);
+  }
+
+  /* ============================================================ project */
+  function projectCtl(box) {
+    if (!box) return;
+    const items = $$('.acc', box);
+    const frames = $$('.project__frame', box);
+    const list = $('.project__list', box);
+    const peek = $('.project__peek', box);
+    const peekImg = peek && $('img', peek);
+
+    const open = idx => items.forEach((it, i) => {
+      const on = i === idx;
+      it.classList.toggle('is-open', on);
+      $('.acc__btn', it).setAttribute('aria-expanded', String(on));
+      $('.acc__panel', it).inert = !on;
+      frames[i]?.classList.toggle('is-active', on);
+    });
+    items.forEach((it, i) => $('.acc__btn', it).addEventListener('click', () => open(i)));
+
+    // a small preview of a closed project follows the pointer (mouse and trackpad only)
+    if (peek && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      list.addEventListener('pointermove', e => {
+        const btn = e.target.closest('.acc__btn');
+        const i = btn ? items.indexOf(btn.closest('.acc')) : -1;
+        if (i < 0 || items[i].classList.contains('is-open')) { list.classList.remove('is-peeking'); return; }
+        const src = $('img', frames[i]);
+        if (peekImg.dataset.i !== String(i)) {
+          peekImg.src = src.currentSrc || src.src;
+          peekImg.style.setProperty('--pos', src.style.getPropertyValue('--pos'));
+          peekImg.dataset.i = String(i);
+        }
+        const r = list.getBoundingClientRect();
+        peek.style.setProperty('--px', `${Math.round(e.clientX - r.left + 20)}px`);
+        peek.style.setProperty('--py', `${Math.round(e.clientY - r.top - peek.offsetHeight / 2)}px`);
+        list.classList.add('is-peeking');
+      });
+      list.addEventListener('pointerleave', () => list.classList.remove('is-peeking'));
+    }
+    open(0);
+  }
+
+  lineupCtl($('#lineup .lineup'));
+  projectCtl($('#project .project'));
+
+  /* ========================================================== interaction */
+  for (const a of $$('.card', shop)) a.addEventListener('click', e => e.preventDefault());
+
+  /* ============================================================ RAF loop */
+  let last = 0;
+  let first = true;
+  let shrinkShown = NaN;
+
+  function frame(now) {
+    requestAnimationFrame(frame);
+    const dt = last ? Math.min(0.1, (now - last) / 1000) : 0;
+    last = now;
+    if (lenis) lenis.raf(now);
+    if (dirty) measure();
+    const y = window.scrollY;
+
+    // chrome + hero: timed entrance, scroll-scrubbed exit
+    const p1 = heroSpan ? clamp01((y - heroTop) / heroSpan) : 0;
+    const since = readyAt < 0 ? -1 : (now - readyAt) / 1000;
+    for (const n of loadNodes) {
+      const vin = since < 0 ? 0 : expoOut(clamp01((since - n.idx * ENTER.STEP) / n.dur));
+      const vout = n.exit < 0 ? 0
+        : expoOut(clamp01((p1 - (HERO_EXIT.START + n.exit * HERO_EXIT.STEP)) / HERO_EXIT.DUR));
+      n.set(vin, vout);
+    }
+    const shrink = Math.round((1 - (1 - shrinkEnd) * clamp01(p1 / SHRINK_UNTIL)) * 1e4) / 1e4;
+    if (shrink !== shrinkShown) { shrinkShown = shrink; brand.style.setProperty('--shrink', shrink); }
+
+    // craft: pinned line windows, or band-by-position on phones
+    let pm;
+    if (pinned) {
+      const p2 = sec2Span ? clamp01((y - sec2Top) / sec2Span) : 0;
+      for (const n of wordNodes) n.set(lineIn(p2, n.line), lineOut(p2, n.line));
+      for (const n of specNodes) n.set(lineIn(p2, n.r), lineOut(p2, n.r));
+      pm = p2;
+    } else {
+      for (const n of wordNodes) n.set(flowIn(n.top - y, Math.min(n.nth, 7)), 0);
+      for (const n of specNodes) n.set(flowIn(n.top - y, 0), 0);
+      pm = clamp01((vh - (matsTop - y)) / (vh + matsH));
+    }
+    updateMats(pm, dt, y);
+
+    // shop and the sections after it: enter by position
+    for (const n of flowNodes) n.set(flowIn(n.top - y, n.idx), 0);
+
+    updatePlate(y, dt);
+    first = false;
+  }
+
+  requestAnimationFrame(frame);
+}
+</script>
+</body>
+</html>
